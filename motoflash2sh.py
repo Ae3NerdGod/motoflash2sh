@@ -12,7 +12,7 @@ def parse_args(args=None):
     p = argparse.ArgumentParser(description="Converts Motorola's flashfile.xml format to a [ba]sh script of fastboot commands")
     p.add_argument('FLASHFILE_XML')
     p.add_argument('-o', '--output', metavar='FLASHFILE_SH', type=argparse.FileType('w'),
-                   help='Script to output (default is flashfile.sh in same directory)')
+                   help='Script to output (default is flashfile.bat in same directory)')
     p.add_argument('-n', '--no-verify', dest='verify', default=True, action='store_false',
                    help="Don't verify MD5/SHA1 sums")
     p.add_argument('-v', '--verbose', action='store_true',
@@ -20,7 +20,7 @@ def parse_args(args=None):
     args = p.parse_args()
 
     if args.output is None:
-        args.output = open(path.join(path.dirname(args.FLASHFILE_XML), 'flashfile.sh'), 'w')
+        args.output = open(path.join(path.dirname(args.FLASHFILE_XML), 'flashfile.bat'), 'w')
     return p, args
 
 def main():
